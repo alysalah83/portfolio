@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function HeroSection() {
   return (
     <section className="relative mx-auto flex min-h-[calc(100vh-60px)] max-w-5xl flex-col justify-center px-5 pt-16 pb-14 sm:px-8 md:px-16 md:pt-20 md:pb-16">
@@ -62,13 +64,13 @@ function HeroSection() {
         >
           See My Work
         </a>
-        <a
+        <Link
           href="/public/Aly_Salah_Frontend_Engineer.pdf"
           download="Aly_Salah_Frontend_Engineer"
           className="text-text rounded-lg border border-gray-700 px-4 py-2 font-mono text-sm font-medium transition duration-200 hover:bg-gray-700/20"
         >
           Download CV
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -20,13 +20,16 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "[YourName] — Front-End Engineer",
+  title: "AlySalh — Front-End Engineer",
   description:
     "Front-End Engineer focused on React, performance, and real-time systems.",
   openGraph: {
-    title: "[YourName] — Front-End Engineer",
-    description: "I turn complex state into fast, clean UI.",
+    title: "AlySalh — Front-End Engineer",
+    description: "I build React UI systems not just screens.",
     type: "website",
+  },
+  icons: {
+    icon: "/favicon.svg",
   },
 };
 
