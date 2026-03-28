@@ -65,7 +65,7 @@ function HeroSection() {
           See My Work
         </a>
         <Link
-          href="/public/Aly_Salah_Frontend_Engineer.pdf"
+          href="/Aly_Salah_Frontend_Engineer.pdf"
           download="Aly_Salah_Frontend_Engineer"
           className="text-text rounded-lg border border-gray-700 px-4 py-2 font-mono text-sm font-medium transition duration-200 hover:bg-gray-700/20"
         >
