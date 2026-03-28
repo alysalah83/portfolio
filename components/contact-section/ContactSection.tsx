@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SurfaceLink } from "../portfolio/ui/SurfaceLink";
 import CopyEmailBtn from "./CopyEmailBtn";
 
@@ -16,12 +17,12 @@ function ContactSection() {
             and solve real problems — not just maintain JIRA tickets.
           </p>
           <address className="relative z-10 flex flex-wrap justify-center gap-3">
-            <a
+            <Link
               href="mailto:alysalah83@gmail.com"
               className="border-accent bg-accent text-accent-text inline-flex items-center gap-2 rounded-lg border px-6 py-[10px] font-mono text-[13px] font-medium transition-all duration-200 active:scale-95"
             >
               Email Me
-            </a>
+            </Link>
             <SurfaceLink href="https://www.linkedin.com/in/aly-salah-456942286/">
               LinkedIn
             </SurfaceLink>
