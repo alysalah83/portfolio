@@ -117,6 +117,8 @@ export const projects: Project[] = [
       "/digitalShop/digtalshop9.png",
       "/digitalShop/digitalshop10.png",
       "/digitalShop/digitalshop11.png",
+      "/digitalShop/digitalshop12.png",
+      "/digitalShop/digitalshop13.png",
     ],
     topLabel: "[ Screenshot — Digital Shop ]",
     featured: true,
@@ -125,15 +127,13 @@ export const projects: Project[] = [
     slides: 12,
 
     preview:
-      "Full e-commerce platform with a database-backed dual-session cart — guests and authenticated users share the same flow, with automatic state merge on login. Server Components throughout for bundle size and SEO. 100% custom Tailwind UI. Stripe checkout in progress.",
+      "Production-grade e-commerce platform with a dual-session cart architecture — guests and authenticated users share identical flows, with automatic conflict-resolved merge on login. Stripe-integrated checkout with webhook-confirmed payment and post-purchase cart clearing. Built Server Components-first for minimal bundle size, fast Core Web Vitals, and clean SEO.",
 
-    what: "A full e-commerce platform built with Next.js App Router, using Server Components as the default across product listing, shop, cart, wishlist, and dashboard pages. Features server-rendered product listings with multi-criteria filtering — category, price range, sort by price and date — and pagination. Product detail pages include an image gallery and a star-rated review submission system. Authenticated users get a product management dashboard with create, edit, delete, and image upload — with server-validated ownership so users can only modify their own products. A reusable compound Slider component is shared across the landing page hero and the category price filter, built from scratch in Tailwind. Stripe checkout is actively in development.",
-
-    problem:
-      "The hardest front-end problem was building a cart that behaves identically for guests and authenticated users, then merges cleanly on login without losing either side's data. Guest sessions are assigned a unique cookie-based ID on first visit; their cart and wishlist live in PostgreSQL — not localStorage — so they survive tab closes, refreshes, and device switches. On login, the guest cart merges into the user's account with conflict resolution for duplicate items. The second problem was search UX: fetching on every keystroke created too many database calls and caused a visible flash of empty results mid-type. Solved with debouncing to reduce requests combined with useDeferredValue to keep the last result visible while new data loads — so the UI never goes blank.",
-
+    what: "A full e-commerce platform built with Next.js App Router. Product listings support multi-criteria filtering by category, price range, and sort order with pagination. Product detail pages include an image gallery and a star-rated review system. Authenticated users get a full product management dashboard — create, edit, delete, and image upload — with server-validated ownership so users can only touch their own products. Checkout is powered by Stripe: a server action builds the session from live cart data, redirects to Stripe's hosted page, and a webhook confirms payment and clears the cart atomically. A reusable compound Slider component built from scratch in Tailwind is shared across the landing page hero and the price range filter.",
     learned:
-      "Next.js App Router forces you to make the client/server boundary a deliberate architecture decision rather than a default. Defaulting to Server Components and only opting into client components where interactivity was actually needed produced a smaller bundle, better Lighthouse scores, and a component tree that's easier to reason about. Storing the guest cart in the database instead of localStorage also made the merge-on-login logic straightforward to test and audit — there's one source of truth, no reconciliation between two storage layers.",
+      "Storing guest cart state in PostgreSQL instead of localStorage made the merge-on-login logic clean — one source of truth, no reconciliation between storage layers, and easy to test. The same thinking applied to Stripe: confirming payment via webhook instead of the success redirect means the cart only clears after funds are actually confirmed server-side. Both decisions came down to the same thing — don't trust the client for state that actually matters.",
+    problem:
+      "Two problems defined the architecture. The first was building a cart that behaves identically for guests and logged-in users, then merges without data loss on login. Guest sessions get a unique cookie-assigned ID on first visit — their cart and wishlist live in PostgreSQL, not localStorage, so they survive tab closes, refreshes, and device switches. On login, the guest cart merges into the user account with per-item conflict resolution for duplicates. The second was search UX: fetching on every keystroke hammered the database and caused a visible blank flash mid-type. Debouncing cut the request volume; useDeferredValue kept the previous results visible while new data loaded — the UI never goes empty. The third was payment integrity: using Stripe's webhook instead of the success redirect URL to confirm payment means the cart only clears after funds are actually confirmed, not just after the user lands on the success page.",
 
     performanceDecisions: [
       {
