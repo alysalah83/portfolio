@@ -18,7 +18,7 @@ function ContactSection() {
           </p>
           <address className="relative z-10 flex flex-wrap justify-center gap-3">
             <Link
-              href="mailto:alysalah83@gmail.com"
+              href="mailto:alysalah.work@gmail.com"
               className="border-accent bg-accent text-accent-text inline-flex items-center gap-2 rounded-lg border px-6 py-[10px] font-mono text-[13px] font-medium transition-all duration-200 active:scale-95"
             >
               Email Me

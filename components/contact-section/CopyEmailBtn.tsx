@@ -23,7 +23,7 @@ function CopyEmailBtn() {
 
   return (
     <div className="text-text border-border bg-bg flex items-center gap-6 rounded-lg border px-4 py-2">
-      <span className="font-mono text-sm">alysalah83@gmail.com</span>
+      <span className="font-mono text-sm">alysalah.work@gmail.com</span>
 
       <button
         onClick={handleCopy}
