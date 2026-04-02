@@ -1,26 +1,39 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import Image from "next/image";
 import { projects } from "../projects-section/projects.const";
-// import { Autoplay } from "swiper/modules";
 
 export function ProductImageSlider({ projectName }: { projectName: string }) {
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const projectImageSrcs = projects.find(
     (project) => project.id === projectName,
   )?.images;
 
+  useEffect(() => {
+    if (isHovered) return;
+    const id = setInterval(() => {
+      swiperRef.current?.slideNext();
+    }, 1000 * 3);
+
+    return () => clearInterval(id);
+  }, [isHovered]);
+
   const totalSlides = projectImageSrcs?.length || 0;
   return (
     <>
-      <div className="border-border relative aspect-video overflow-hidden rounded-xl border">
+      <div
+        className="border-border relative aspect-video overflow-hidden rounded-xl border"
+        onPointerEnter={() => setIsHovered(true)}
+        onPointerLeave={() => setIsHovered(false)}
+      >
         <Swiper
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
