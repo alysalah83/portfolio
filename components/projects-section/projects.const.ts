@@ -182,7 +182,7 @@ export const projects: Project[] = [
     title: "Print Manager — Business Tool",
     cardTitle: "Print Manager",
     sub: "Client project · Live in production · 2025",
-    posterImage: "/printHouse/printHouse4.png",
+    posterImage: "/printHouse/printHouse2.png",
     images: [
       "/printHouse/printHouse2.png",
       "/printHouse/printHouse3.png",
