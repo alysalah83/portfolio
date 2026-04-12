@@ -6,6 +6,7 @@ import Nav from "@/components/nav/Nav";
 import { NoiseOverlay } from "@/components/portfolio/chrome/NoiseOverlay";
 import ContactSection from "@/components/contact-section/ContactSection";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -52,6 +53,7 @@ export default function RootLayout({
         {children}
         <ContactSection />
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
